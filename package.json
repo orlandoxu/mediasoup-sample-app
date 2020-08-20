@@ -4,7 +4,7 @@
   "description": "Mediasoup Sample App",
   "main": "server.js",
   "scripts": {
-    "start": "browserify client.js -o app-bundle.js; node server.js"
+    "start": "node rtsp2socket.js"
   },
   "author": "",
   "license": "ISC",
@@ -13,7 +13,8 @@
     "mediasoup": "3",
     "mediasoup-client": "3",
     "socket.io": "^2.2.0",
-    "socket.io-client": "^2.2.0"
+    "socket.io-client": "^2.2.0",
+    "yellowstone": "^3.0.1"
   },
   "devDependencies": {
     "requirejs": "^2.3.6"

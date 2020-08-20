@@ -164,6 +164,45 @@ async function publish(e) {
   }
 }
 
+
+// 只展示试试
+(async function JustShow() {
+  let stream;
+  try {
+    stream = await navigator.mediaDevices.getDisplayMedia({
+      video: {
+        width: window.screen.width / 2,
+        height: window.screen.height / 2,
+        frameRate: {
+          // exact: 15,
+          ideal: 5
+        }
+      }
+    });
+    // stream = await navigator.mediaDevices.getUserMedia({
+    //   audio: false,
+    //   video: {
+    //     frameRate: { ideal: 10, max: 15 },
+    //     mediaSource: 'desktop',
+    //
+    //     // frameRate: { ideal: 1, max: 1 },
+    //     // mandatory: {
+    //     //   chromeMediaSource: 'desktop',
+    //     //   // chromeMediaSourceId: windows[0].id,
+    //     //   // chromeMediaSourceId: sourceId,
+    //     //   maxWidth: 2000,
+    //     //   maxHeight: 1000,
+    //     //   maxFrameRate: 20
+    //     // },
+    //   },
+    // });
+  } catch (err) {
+    console.log(err)
+    // $txtPublish.innerHTML = 'failed';
+  }
+  document.querySelector('#local_video').srcObject = stream;
+})()
+
 async function getUserMedia(transport, isWebcam) {
   if (!device.canProduce('video')) {
     console.error('cannot produce video');

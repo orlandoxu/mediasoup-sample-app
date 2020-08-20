@@ -19,7 +19,7 @@ let mediasoupRouter;
 (async () => {
   try {
     await runExpressApp();
-    await runWebServer();
+    await runWebServer();   // 上面两个启动的主要是静态server
     await runSocketServer();
     await runMediasoupWorker();
   } catch (err) {
