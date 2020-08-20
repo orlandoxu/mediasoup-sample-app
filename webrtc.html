@@ -91,10 +91,10 @@
 
   function opened() { // now the MediaSource object is ready to go
     sourceBuffer = ms.addSourceBuffer(codecPars);
-    sourceBuffer.addEventListener("updateend",loadPacket);
+    sourceBuffer.addEventListener("updateend", loadPacket);
 
     // set up the websocket
-    ws = new WebSocket("ws://localhost/ws/");
+    ws = new WebSocket("ws://127.0.0.1:3001");
     ws.binaryType = "arraybuffer";
     ws.onmessage = function (event) {
       pushPacket(event.data);
@@ -106,7 +106,7 @@
     // add event listeners
     // ms.addEventListener('webkitsourceopen',opened,false);
     // ms.addEventListener('webkitsourceclose',closed,false);
-    ms.addEventListener('sourceopen',opened,false);
+    ms.addEventListener('sourceopen', opened, false);
     // ms.addEventListener('sourceclose',closed,false);
 
 
